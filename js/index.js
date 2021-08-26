@@ -206,7 +206,7 @@ const searchEngine = (text) => {
 
     for(let key in queries){
         bool = queries[key].toLowerCase().includes(text)
-        debugger
+        // debugger
         if(text != '' && bool){
             boolCount++;
             console.log('include!');
@@ -249,43 +249,77 @@ const resultsClose = () => {
     $('.search__results').removeClass('search__results--open')
 }
 
+const backShow = () => {
+    // $('.content__back').addClass('content__back--show')
+    $('.content__back').fadeIn()
+}
+
+const backHide = () => {
+    // $('.content__back').removeClass('content__back--show')
+    $('.content__back').fadeOut()
+}
+
 // when document is loaded
 jQuery(document).ready(function () {
     
     // search results show
     $('#search-btn-1').click(() => {
+        backShow();
+        $('.search').addClass('search--upper')
         let text = $('.bigMap__search .search__field').val()
-        console.log(text)
+        // console.log(text)
         searchEngine(text);
         console.log('click!');
-        $('.search__results').addClass('search__results--open')
+        $('.search__results').fadeIn()
 
 
         $(document).mouseup(function (e){ // событие клика по веб-документу
+            backHide()
             var div = $(".search__results"); // тут указываем ID элемента
             if (!div.is(e.target) // если клик был не по нашему блоку
                 && div.has(e.target).length === 0) { // и не по его дочерним элементам
-                div.removeClass('search__results--open') // скрываем его
+                div.fadeOut() // скрываем его
+                $('.search').removeClass('search--upper')
             }
         });
 
         $('.result').click((el) => {
             let country = el.target.getAttribute('country')
-            console.log(country)
+            // console.log(country)
 
             for(let i = 0; i < sample_data_active.length; i++){
                 if(sample_data_active[i] == country){
-                    console.log('countryyyyyyyyyy')
+                    // console.log('countryyyyyyyyyy')
                     $('.jqvmap-region').removeClass('selected');
                     $(id_part + country).addClass('selected');
                     $('.jqvmap-region').addClass('jqvmap-region--blur')
                     resultsClose()
                     $('.bigMap__search .search__field').attr('disabled', true)
                     // console.log($('.bigMap__search .search__field').target.value)
+                    $('.search__results').fadeOut()
                     popupOpen();
                 }
             }
         })
+    })
+
+    $('.header__search').click(() => {
+        $('.bigMap__search').slideToggle()
+    })
+
+    $('.header__toggler').click(() => {
+        $('.header__nav').addClass('header__nav--toggled')
+        backShow();
+        $(document).mouseup(function (e){ // событие клика по веб-документу
+            // debugger
+            var div = $(".header__nav"); // тут указываем ID элемента
+            
+            if (!div.is(e.target) // если клик был не по нашему блоку
+                && div.has(e.target).length === 0) { // и не по его дочерним элементам
+                div.removeClass('header__nav--toggled') // скрываем его
+                backHide()
+            }
+        });
     })
 
     
@@ -315,6 +349,14 @@ jQuery(document).ready(function () {
     // language toggler
     $('.language__heading').click(() => {
         $('.language__body').toggleClass('language__body--open')
+        $(document).mouseup(function (e){ // событие клика по веб-документу
+            // backHide()
+            var div = $(".language__body"); // тут указываем ID элемента
+            if (!div.is(e.target) // если клик был не по нашему блоку
+                && div.has(e.target).length === 0) { // и не по его дочерним элементам
+                div.removeClass('language__body--open')
+            }
+        });
     })
 
     // vector map
