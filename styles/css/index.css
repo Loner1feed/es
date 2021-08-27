@@ -677,8 +677,11 @@ body {
   margin-bottom: 25px;
   font-size: 32px;
   line-height: 120.2%;
+  color: #1D3759;
+  text-decoration: none;
 }
 .cardItem__img {
+  display: block;
   max-width: 100%;
   overflow: hidden;
   border: 1px solid #E2E2E2;
@@ -1255,4 +1258,18 @@ body {
 }
 .trend .cardItem__bottomRow {
   margin-top: 10px;
+}
+
+.countries__wrap {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.countries__grid {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 20px;
+}
+.countries__cardItem .cardItem__heading:hover {
+  text-decoration: underline;
 }

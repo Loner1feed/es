@@ -699,9 +699,12 @@ body{
         margin-bottom: 25px;
         font-size: 32px;
         line-height: 120.2%;
+        color: $textColor;
+        text-decoration: none;
     }
 
     &__img{
+        display: block;
         max-width: 100%;
         overflow: hidden;
         border: 1px solid #E2E2E2;
@@ -1288,6 +1291,28 @@ body{
     .cardItem{
         &__bottomRow{
             margin-top: 10px;
+        }
+    }
+}
+
+.countries{
+
+    &__wrap{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-gap: 20px;
+    }
+
+    &__cardItem{
+        .cardItem__heading{
+            &:hover{
+                text-decoration: underline;
+            }
         }
     }
 }

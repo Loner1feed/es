@@ -110,6 +110,12 @@
     margin-right: 10px;
     font-size: 20px;
   }
+  .search__results {
+    max-width: 240px;
+  }
+  .search__results span {
+    font-size: 14px;
+  }
 
   .header__link {
     margin-right: 20px;
@@ -260,6 +266,11 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+
+  .countries__grid {
+    -ms-grid-columns: (1fr)[1];
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .title {

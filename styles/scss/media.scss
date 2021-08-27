@@ -144,6 +144,13 @@
             margin-right: 10px;
             font-size: 20px;
         }
+
+        &__results{
+            max-width: 240px;
+            span{
+                font-size: 14px;
+            }
+        }
     }
 
     .header{
@@ -315,6 +322,12 @@
             display: flex;
         }
 
+    }
+
+    .countries{
+        &__grid{
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 
     .title{
