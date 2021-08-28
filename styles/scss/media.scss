@@ -266,6 +266,21 @@
         }
     }
 
+    .polusPanels{
+        max-width: 100px;
+        &__item{
+            border-width: 1px;
+            padding-bottom: 10px;
+            svg{
+                max-width: 60px;
+            }
+
+            span{
+                font-size: 14px;
+            }
+        }
+    }
+
 }
 
 @media screen and (max-width: 480px){
@@ -458,6 +473,29 @@
 
         &__grid{
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+    }
+
+    .bigMap{
+        &__polusPanels{
+            // top: 0;
+            // transform: unset;
+        }
+    }
+
+    .polusPanels{
+        &__item{
+            max-width: 70px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            svg{
+                max-width: 40px;
+            }
+
+            span{
+                font-size: 12px;
+                margin-top: 0px;
+            }
         }
     }
 }

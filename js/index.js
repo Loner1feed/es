@@ -1,19 +1,3 @@
-
-
-
-// popup open function
-const popupOpen = () => {
-    $('.popups').fadeIn()
-}
-// popup close function
-const popupClose = () => {
-    $('.popups').fadeOut()
-    let id_part = '#jqvmap1_'
-    $('.jqvmap-region').removeClass('selected');
-    $('.jqvmap-region').removeClass('jqvmap-region--blur')
-    $('.bigMap__search .search__field').attr('disabled', false)
-}
-
 const resultsClose = () => {
     $('.search__results').removeClass('search__results--open')
 }

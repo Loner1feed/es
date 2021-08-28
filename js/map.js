@@ -181,11 +181,13 @@ var sample_data = {
     "vn": 0,
     "ye": 0,
     "zm": 0,
-    "zw": 0
+    "zw": 0,
+    "at": 1, //антарктида
+    "np": 1, //северный полюс
 
 };
 
-let sample_data_active = ['af', 'us', 'ru']
+let sample_data_active = ['af', 'us', 'ru', 'at', 'np']
 
 const id_part = '#jqvmap1_'
 const results = $('.search__results')
@@ -194,6 +196,8 @@ const search_array = {
     'us': 'United States of America',
     'ru': 'Russian Federation',
     'af': 'Afganistan',
+    'at': 'Antarctic',
+    'np': 'North Pole',
 }
 const empty = $('<p class="search__empty"> Ничего не найдено </p>')
 
@@ -229,7 +233,21 @@ const searchEngine = (text) => {
         debugger
     }
 }
-
+// popup open function
+const popupOpen = () => {
+    $('.popups').fadeIn()
+}
+// popup close function
+const popupClose = () => {
+    $('.popups').fadeOut()
+    let id_part = '#jqvmap1_'
+    $('.jqvmap-region').removeClass('selected');
+    $('.polusPanels__item').removeClass('selected');
+    $('.jqvmap-region').removeClass('jqvmap-region--blur')
+    $('.bigMap__search .search__field').attr('disabled', false)
+    // $('.antarctic').removeClass('polusPanels__item--selected')
+    // $('.north-pole').removeClass('polusPanels__item--selected')
+}
 
 $(document).ready(() => {
     
@@ -279,6 +297,7 @@ $(document).ready(() => {
         sample_data_active.forEach((item) => {
             if(key == item){
                 $(id_part + key).addClass('avaliable');
+                // $('.polusPanels__item')
                 console.log('Match!');
                 sample_data[key] = '1'
                 console.log(id_part + key)
@@ -286,6 +305,22 @@ $(document).ready(() => {
             }
         })
     }
+
+    $('.antarctic').click(() => {
+        popupOpen()
+        $('.jqvmap-region').removeClass('selected');
+        // $(id_part + code).addClass('selected');
+        $('.jqvmap-region').addClass('jqvmap-region--blur')
+        $('.antarctic').addClass('polusPanels__item--selected')
+    })
+
+    $('.north-pole').click(() => {
+        popupOpen()
+        $('.jqvmap-region').removeClass('selected');
+        // $(id_part + code).addClass('selected');
+        $('.jqvmap-region').addClass('jqvmap-region--blur')
+        $('.north-pole').addClass('polusPanels__item--selected')
+    })
 
     // vector map
     jQuery('#map').vectorMap({

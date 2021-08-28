@@ -131,10 +131,73 @@ body {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+.bigMap__polusPanels {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 9;
+  left: 0;
+}
 .bigMap__search {
   margin-bottom: -28px;
   position: relative;
   z-index: 2;
+}
+
+.polusPanels {
+  max-width: 180px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.polusPanels__item {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  padding-bottom: 20px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.polusPanels__item svg {
+  width: 100%;
+  max-width: 100px;
+  fill: #00BF77;
+}
+.polusPanels__item svg g {
+  -webkit-box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.23);
+          box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.23);
+}
+.polusPanels__item span {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 24px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.polusPanels__item:hover, .polusPanels__item.selected {
+  background: #ECE8E0;
+}
+.polusPanels__item:hover span, .polusPanels__item.selected span {
+  color: #1D3759;
 }
 
 .jqvmap-region {
