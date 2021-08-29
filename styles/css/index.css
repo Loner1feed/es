@@ -173,7 +173,8 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.3);
   text-decoration: none;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -627,6 +628,7 @@ body {
 }
 .bannerSlider__slide .plusView-btn {
   position: absolute;
+  text-decoration: none;
   top: 15px;
   right: 15px;
   -webkit-transition: 0.3s;
